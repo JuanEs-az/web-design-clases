@@ -1,0 +1,11 @@
+.contents{
+    width: 300px;
+    margin: 0 auto;
+}
+.contents ul li{
+    font-family: 'Squada One', cursive;
+    font-size: 30px;
+}
+.contents ul{
+    list-style: none;
+}
