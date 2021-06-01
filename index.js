@@ -1,44 +1,37 @@
-arrays = [
-    "Juan",
-    "Colo",
-    "Simón",
-]
-obj = {
-    juan: {
-        nombre: "Juan",
-        apellido: "Arango",
-        edad: 15,
-        TI: 12345678910
-    },
-    colo: {
-        nombre: "Samuel",
-        apellido: "Colorado",
-        edad: 15,
-        TI: 10987654321
-    },
-    simon: {
-        nombre: "Simón",
-        apellido: "Posada",
-        edad: 15,
-        TI: 24681097531
-    }
-}
+/*
+Cuando se presione el botón btn-guardar:
+1. Se guarde el dato del input
+2. Se borra el dato del input
+3. Añadir el dato tomado a la lista
 
-let persona1 = {
-    nombre: "Jhon",
-    apellido: "Doe"
-}
+Cuando se presione el botón btn-limpiar:
+1. Se borra el input
+2. Se borra la lista
+*/
+const campotexto = document.getElementById("campotexto")
+const btnLimpiar = document.querySelector("#btn-limpiar")
+const btnGuardar = document.querySelector("#btn-guardar")
+const listado = document.querySelector("#listado")
 
-let persona2 = {...persona1}
-persona2.nombre = "Jane"
-console.table({ persona1, persona2 })
-
-const constructorPeronas = ( nombre, apellido ) => {
-    return {
-        nombre,
-        apellido,
-        presentarse: function(){
-            console.log(`Hola, mi nombre es ${ this.nombre } ${ this.apellido }`)
-        }
-    }
+const guardar = () => {
+    //Guardamos el dato
+    const valortexto = campotexto.value
+    //Limpiamos el dato del input
+    campotexto.value = ""
+    //Guardarlo en la lista
+    const elemento = document.createElement("li")
+    elemento.classList.add("list-group-item")
+    elemento.innerText = valortexto
+    listado.appendChild( elemento )
 }
+btnGuardar.addEventListener("click", guardar)
+btnLimpiar.addEventListener("click", () => {
+    campotexto.value = ""
+    listado.innerHTML = ""
+})
+
+const hackSpam = (nombre, cantidad) => {
+    for(let i = 1; i <= cantidad; i++){
+        campotexto.value = nombre
+        guardar()
+    }}
